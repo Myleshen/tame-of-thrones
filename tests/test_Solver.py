@@ -48,3 +48,21 @@ class TestSolver(unittest.TestCase):
         self.assertEqual(
             self.solver.kingdoms_pact_forged_with, [],
         )
+
+    def test_input_contents_are_repeated(self):
+        self.assertEqual(self.solver.kingdoms_pact_forged_with, [])
+        kingdom_list = ["AIR", "AIR", "AIR"]
+        encoded_string_list = [
+            "ROZO",
+            "ROZO",
+            "ROZO",
+        ]
+        for kingdom, encoded_string in zip(
+            kingdom_list, encoded_string_list
+        ):
+            self.solver.if_accepted_add_to_forged_pact_list(
+                kingdom, encoded_string
+            )
+        self.assertEqual(
+            self.solver.kingdoms_pact_forged_with, ["AIR"],
+        )

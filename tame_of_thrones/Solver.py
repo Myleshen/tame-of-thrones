@@ -102,7 +102,8 @@ class Solver:
         :type encoded_string: String
         """
         if self.__check_if_won_over_kingdom(to_kingdom, encoded_string):
-            self.kingdoms_pact_forged_with.append(to_kingdom)
+            if to_kingdom not in self.kingdoms_pact_forged_with:
+                self.kingdoms_pact_forged_with.append(to_kingdom)
 
     def print_answer(self):
         """
