@@ -4,7 +4,7 @@ from tame_of_thrones.Solver import Solver
 
 
 def main():
-    file_contents = CommandLineParser()._debug_get_file_contents()
+    file_contents = CommandLineParser().get_file_contents()
     solver = Solver()
 
     # Main Logic
