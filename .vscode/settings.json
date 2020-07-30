@@ -1,0 +1,11 @@
+{
+    "python.pythonPath": "/home/myleshen/anaconda3/envs/geektrust/bin/python",
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "/home/myleshen/anaconda3/envs/geektrust/bin/black",
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "errorLens.exclude": [
+        "unresolved import"
+    ]
+}
