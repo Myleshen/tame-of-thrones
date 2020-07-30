@@ -6,6 +6,8 @@ class Solver:
         """
         __init__ --> Initializes the kingdom dict which has the kingdom name as
         key and emblem, length of emblem as a list
+        Initializes a list for the instance to save all the regions that
+        formed the pact with SPACE region
         """
         self.kingdom_dict = {
             "AIR": ["OWL", 3],
@@ -80,7 +82,7 @@ class Solver:
         letter_count_dict = self.__count_required_letter(
             letters_needed_to_win_over
         )
-        # Just incase if there are any small letter
+        # Just incase if there are any small letter by any mistake
         encoded_string = encoded_string.upper()
         for letter, freq in letter_count_dict.items():
             if encoded_string.count(letter) < freq:
