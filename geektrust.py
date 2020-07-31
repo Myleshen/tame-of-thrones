@@ -1,5 +1,5 @@
 from tame_of_thrones.CommandLineParser import CommandLineParser
-from tame_of_thrones.MessageClass import Message
+from tame_of_thrones.Message import Message
 from tame_of_thrones.Solver import Solver
 
 
@@ -18,5 +18,4 @@ def main():
 
 
 if __name__ == "__main__":
-    CommandLineParser()
     main()
