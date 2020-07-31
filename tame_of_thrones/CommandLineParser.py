@@ -9,7 +9,7 @@ class CommandLineParser:
 
         """
         self.file_name = sys.argv[1]
-        self.file_parser = FileParser(self.file_name)
+        self.file_parser = FileParser()
 
     def get_file_contents(self):
         """
@@ -19,4 +19,4 @@ class CommandLineParser:
         :return: Contents of the File
         :rtype: List
         """
-        return self.file_parser.parse_file()
+        return self.file_parser.parse_file(self.file_name)
