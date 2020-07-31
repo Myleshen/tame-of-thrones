@@ -1,5 +1,4 @@
 from tame_of_thrones.CommandLineParser import CommandLineParser
-from tame_of_thrones.Message import Message
 from tame_of_thrones.Solver import Solver
 
 
@@ -9,10 +8,11 @@ def main():
 
     # Main Logic
     for line in file_contents:
-        message = Message(line)
-        solver.if_accepted_add_to_forged_pact_list(
-            message.kingdom, message.message
+        kingdom, *message = line.split()
+        message = (
+            "".join(message) if isinstance(message, list) else message
         )
+        solver.if_accepted_add_to_forged_pact_list(kingdom, message)
 
     solver.print_answer()
 

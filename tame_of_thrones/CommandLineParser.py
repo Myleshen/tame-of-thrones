@@ -20,13 +20,3 @@ class CommandLineParser:
         :rtype: List
         """
         return self.file_parser.parse_file()
-
-    def _debug_get_file_contents(self):
-        """
-        _debug_get_file_contents Same as getFileContents,
-        used only when there is just fileName and not the Absolute Path
-
-        :return: Contents of the File
-        :rtype: List
-        """
-        return self.file_parser._parse_file_debug()
