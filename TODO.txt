@@ -1,0 +1,3 @@
+TODO1: Breakdown Functionality of Solver.py
+Finished --> TODO2: Create a good README.md file
+TODO3: Write more unittests for all the classes
