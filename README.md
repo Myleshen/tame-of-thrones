@@ -1,5 +1,5 @@
 # Problem Statement
-========================
+
 There is no ruler in the universe of Southeros and pandemonium reigns. Shan, the gorilla king of the Space kingdom wants to rule all Six Kingdoms in the universe of Southeros. He needs the support of 3 more kingdoms to be the ruler.
 
 There is no ruler today and pandemonium reigns. Shan is sending secret messages to all kingdoms to ask for their allegiance. Your coding challenge is to help King Shan send the right message to the right kingdom to win them over. Each kingdom has their own emblem and the secret message should contain the letters of the emblem in it. Once Shan has the support of 3 other kingdoms, he is the ruler!
@@ -7,20 +7,20 @@ There is no ruler today and pandemonium reigns. Shan is sending secret messages 
 Refer https://www.geektrust.in/coding-problem/backend/tame-of-thrones
 
 # Requirements
-======================
+
 <li>Python 3.7 or above</li>
 
 # Usage
-=======================
+
 <ul>
 <li>
-## Method 1:
-========
+Method 1:
 <ul>
 <li>This method is used when the input file is in someother location</li>
 <li>The output of the program is only displayed in the console</li>
 <li>This method does not invoke the IntegrationTest of the module</li>
 </ul>
+<br>
 cd into the root directory (Where the geektrust.py is)
 Type the following command to run the module
 ```python
@@ -38,7 +38,6 @@ python -m unittest current_folder/tests/IntegrationTest.py
 </li>
 <li>
 Method 2:
-==========
 <ul>
 <li>This method is used when you need to add new inputs and outputs in the tests folder</li>
 <li>Add the input file to the inputs folder and make sure they follow the same style as the other files</li>
@@ -47,6 +46,7 @@ Method 2:
 <li>The files are then used by the IntegrationTest.py to check if there are any differences
 in the expected output and actual output</li>
 </ul>
+<br>
 cd into the root directory (Where Runner.sh is)
 
 ```bash
