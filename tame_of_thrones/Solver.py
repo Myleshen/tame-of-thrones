@@ -1,3 +1,4 @@
+from tame_of_thrones.Encoder import Encoder
 import collections
 
 
@@ -10,58 +11,15 @@ class Solver:
         formed the pact with SPACE region
         """
         self.kingdom_dict = {
-            "AIR": ["OWL", 3],
-            "FIRE": ["DRAGON", 6],
-            "ICE": ["MAMMOTH", 7],
-            "LAND": ["PANDA", 5],
-            "SPACE": ["GORILLA", 7],
-            "WATER": ["OCTOPUS", 7],
+            "AIR": "OWL",
+            "FIRE": "DRAGON",
+            "ICE": "MAMMOTH",
+            "LAND": "PANDA",
+            "SPACE": "GORILLA",
+            "WATER": "OCTOPUS",
         }
         self.kingdoms_pact_forged_with = list()
-
-    def __required_letters_to_form_pact(self, to_kingdom):
-        """
-        __required_letters_to_form_pact ---> Encodes the emblem,
-        using the length of the emblem ("OWL" --> 3)
-
-        The logic used here is that we need to have all the letters
-        of the encoded emblem and then the emblem is encoded using the
-        length of the emblem.
-
-        :param to_kingdom: Kingdom Name (Capital Letters Only)
-        :type to_kingdom: String
-        :return: Encoded letters that are necessary in the encoded string
-        # Emblem --> OWL
-        # After Encoding --> RZO
-        # The Encoded letters should be \
-        present in the encoded string to form the pact
-        :rtype: Letters that are required to be present in the encoded string
-        """
-        emblem, ceaser_cipher_key = self.kingdom_dict[to_kingdom]
-        letters_required = list()
-        for letter in emblem:
-            if ord(letter) - ord("A") + ceaser_cipher_key >= 26:
-                letters_required.append(
-                    chr(ord(letter) - 26 + ceaser_cipher_key)
-                )
-            else:
-                letters_required.append(
-                    chr(ord(letter) + ceaser_cipher_key)
-                )
-
-        return letters_required
-
-    def __count_required_letter(self, letters_required):
-        """
-        __count_required_letter counts the freq of each letter
-        in letters_required
-
-        :param letters_required: letters_required
-        :type letters_required: List
-        :return: Freq of each letter in letters_required
-        :rtype: Dict{letter: freq}
-        """
-        return collections.Counter(letters_required)
+        self.encoder = Encoder()
 
     def __check_if_won_over_kingdom(self, to_kingdom, encoded_string):
         """
@@ -76,16 +34,14 @@ class Solver:
         based on whether the kingdom accepted the alligance
         :rtype: Boolean
         """
-        letters_needed_to_win_over = self.__required_letters_to_form_pact(
-            to_kingdom
-        )
-        letter_count_dict = self.__count_required_letter(
-            letters_needed_to_win_over
+        freq_dict_encoded_letter = self.encoder.encoded_letter_freq(
+            self.kingdom_dict[to_kingdom], encoded_string,
         )
         # Just incase if there are any small letter by any mistake
         encoded_string = encoded_string.upper()
-        for letter, freq in letter_count_dict.items():
-            if encoded_string.count(letter) < freq:
+        encoded_string_counter = collections.Counter(encoded_string)
+        for key, value in freq_dict_encoded_letter.items():
+            if encoded_string_counter[key] < freq_dict_encoded_letter[key]:
                 return False
         return True
 
