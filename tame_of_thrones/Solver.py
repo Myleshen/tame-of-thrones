@@ -15,6 +15,8 @@ class Solver:
         """
         __check_if_won_over_kingdom --> Checks if the encoded string
         has the required letters.
+        The Encoded emblem letters should be \
+        present in the encoded string to form the pact
 
         :param to_kingdom: Kingdom Name
         :type to_kingdom: String
@@ -43,7 +45,8 @@ class Solver:
         """
         if_accepted_add_to_forged_pact_list --> Adds the kingdom to object's
         internal variable named kingdoms_pact_forged_with.
-
+        --> Also checks for redundancy here, this is a redundancy check since
+        the main file check's it there itself
         :param to_kingdom: Contains the Kingdom Name
         :type to_kingdom: String
         :param encoded_string: Contains the encoded_string

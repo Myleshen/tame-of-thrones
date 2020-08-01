@@ -11,9 +11,9 @@ class TestCommandLineParser(unittest.TestCase):
         """
         sys.argv.append("testFile.txt")
 
-    def test_commandLineInput(self):
+    def test_command_line_input(self):
         """
-        test_commandLineInput --> This gets the sys.argv[1] and asserts
+        test_command_line_input --> This gets the sys.argv[1] and asserts
         it is not None
         """
         testParser = CommandLineParser()

@@ -10,7 +10,7 @@ class Kingdom:
         and then encodes the emblems
 
         self.kingdom_dict = {
-            kingdom name: [encoded_emblem, encoded_letter_freq_dict]
+            kingdom name: <dict> encoded_letter_freq_dict
             }
         """
         self.file_parser = FileParser()
@@ -59,7 +59,5 @@ class Kingdom:
         """
         encoder = Encoder()
         for key, value in kingdom_dict.items():
-            kingdom_dict[key] = encoder.encoded_letter_freq(
-                value, len(value)
-            )
+            kingdom_dict[key] = encoder.encoded_letter_freq(value)
         return kingdom_dict

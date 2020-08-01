@@ -1,3 +1,7 @@
+# Clears the console before running
+clear
+
+#Gets the directory to search for the input files
 search_dir="$PWD/inputs"
 
 

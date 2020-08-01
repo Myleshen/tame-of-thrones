@@ -2,26 +2,26 @@ import collections
 
 
 class Encoder:
-    def encoded_letter_freq(self, emblem, encoded_string):
+    def encoded_letter_freq(self, word, cipher_key=None):
         """
-        encoded_letter_freq ---> Encodes the emblem,
-        using the length of the emblem ("OWL" --> 3)
+        encoded_letter_freq ---> Encodes any word to the
+        length of the word
 
         The logic used here is that we need to have all the letters
         of the encoded emblem and then the emblem is encoded using the
         length of the emblem.
 
-        :param emblem: Emblem Name (Capital Letters Only)
-        :type emblem: String
-        :return: Encoded letters that are necessary in the encoded string
-        # Emblem --> OWL
+        :param word: Any Word (Capital Letters Only)
+        :type word: String
+        :return: Letter_freq_dict after encoding the word
+        # Word --> OWL
         # After Encoding --> RZO
-        The Encoded letters should be \
-        present in the encoded string to form the pact
-        :rtype: Letters that are required to be present in the encoded string
+        :rtype: Dict
         """
-        emblem, ceaser_cipher_key = emblem, len(emblem)
-        encoded_letters = self.__encode_word(emblem, ceaser_cipher_key)
+        # Just incase the word is in smaller case
+        word = word.upper()
+        ceaser_cipher_key = len(word) if cipher_key is None else cipher_key
+        encoded_letters = self.__encode_word(word, ceaser_cipher_key)
 
         return self.__count_letters(encoded_letters)
 

@@ -4,13 +4,20 @@ There is no ruler in the universe of Southeros and pandemonium reigns. Shan, the
 
 There is no ruler today and pandemonium reigns. Shan is sending secret messages to all kingdoms to ask for their allegiance. Your coding challenge is to help King Shan send the right message to the right kingdom to win them over. Each kingdom has their own emblem and the secret message should contain the letters of the emblem in it. Once Shan has the support of 3 other kingdoms, he is the ruler!
 
-Refer https://www.geektrust.in/coding-problem/backend/tame-of-thrones
+Refer: https://www.geektrust.in/coding-problem/backend/tame-of-thrones
 
 # Requirements
 
 <li>Python 3.7 or above</li>
 
 # Usage
+
+The basic kingdoms and emblems are present in the KingdomData.txt
+
+There are no hardcoded values inside the program :)
+
+Kingdoms can be added or removed if necessary since they are fed into
+the program at run time
 
 <ul>
 <li>
@@ -21,8 +28,9 @@ Method 1:
 <li>This method does not invoke the IntegrationTest of the module</li>
 </ul>
 <br>
-cd into the root directory (Where the geektrust.py is)
+Change Directory into the root directory (Where the geektrust.py is)<br>
 Type the following command to run the module
+
 ```python
 python -m geektrust /absolutepath_to_input_file
 ```
@@ -47,7 +55,8 @@ Method 2:
 in the expected output and actual output</li>
 </ul>
 <br>
-cd into the root directory (Where Runner.sh is)
+cd into the root directory (Where Runner.sh is)<br>
+This Script clears the current terminal screen and then shows the output
 
 ```bash
 chmod +x Runner.sh 
