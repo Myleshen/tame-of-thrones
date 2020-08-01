@@ -1,4 +1,8 @@
 ## Finished --> TODO1: Breakdown Functionality of Solver.py
 Brokendown Functionality into two files --> Encoder and Solver
+
 ## Finished --> TODO2: Create a good README.md file
-TODO3: Write more unittests for all the classes
+Still a long way to go for the README.md file, but this is good for now :)
+
+## Finished --> TODO3: Write more unittests for all the classes
+Tests now handle some edge cases and cases that fail and all
