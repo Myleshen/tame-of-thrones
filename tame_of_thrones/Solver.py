@@ -1,27 +1,17 @@
-from tame_of_thrones.Encoder import Encoder
 import collections
 
 
 class Solver:
     def __init__(self):
         """
-        __init__ --> Initializes the kingdom dict which has the kingdom name as
-        key and emblem, length of emblem as a list
-        Initializes a list for the instance to save all the regions that
-        formed the pact with SPACE region
+        __init__ --> Initializes a list for the instance to save
+        all the regions that formed the pact with SPACE region
         """
-        self.kingdom_dict = {
-            "AIR": "OWL",
-            "FIRE": "DRAGON",
-            "ICE": "MAMMOTH",
-            "LAND": "PANDA",
-            "SPACE": "GORILLA",
-            "WATER": "OCTOPUS",
-        }
         self.kingdoms_pact_forged_with = list()
-        self.encoder = Encoder()
 
-    def __check_if_won_over_kingdom(self, to_kingdom, encoded_string):
+    def __check_if_won_over_kingdom(
+        self, to_kingdom, encoded_string, encoded_emblem_dict
+    ):
         """
         __check_if_won_over_kingdom --> Checks if the encoded string
         has the required letters.
@@ -30,23 +20,25 @@ class Solver:
         :type to_kingdom: String
         :param encoded_string: Secret Message sent by Land Ruler
         :type encoded_string: String
+        :param encoded_emblem_dict: Dictionary containing letter freq
+        of encoded emblem
+        :type encoded_emblem_dict: Dict
         :return: True / False
         based on whether the kingdom accepted the alligance
         :rtype: Boolean
         """
-        freq_dict_encoded_letter = self.encoder.encoded_letter_freq(
-            self.kingdom_dict[to_kingdom], encoded_string,
-        )
         # Just incase if there are any small letter by any mistake
         encoded_string = encoded_string.upper()
+
         encoded_string_counter = collections.Counter(encoded_string)
-        for key, value in freq_dict_encoded_letter.items():
-            if encoded_string_counter[key] < freq_dict_encoded_letter[key]:
+        for key, value in encoded_emblem_dict.items():
+            if encoded_string_counter[key] < encoded_emblem_dict[key]:
                 return False
+
         return True
 
     def if_accepted_add_to_forged_pact_list(
-        self, to_kingdom, encoded_string
+        self, to_kingdom, encoded_string, encoded_emblem_freq
     ):
         """
         if_accepted_add_to_forged_pact_list --> Adds the kingdom to object's
@@ -56,10 +48,17 @@ class Solver:
         :type to_kingdom: String
         :param encoded_string: Contains the encoded_string
         :type encoded_string: String
+        :param encoded_emblem_freq: Dictionary containing the encoded letter
+        frequency
+        :type encoded_emblem_freq: Dict
         """
-        if self.__check_if_won_over_kingdom(to_kingdom, encoded_string):
-            if to_kingdom not in self.kingdoms_pact_forged_with:
-                self.kingdoms_pact_forged_with.append(to_kingdom)
+        if (
+            self.__check_if_won_over_kingdom(
+                to_kingdom, encoded_string, encoded_emblem_freq
+            )
+            and to_kingdom not in self.kingdoms_pact_forged_with
+        ):
+            self.kingdoms_pact_forged_with.append(to_kingdom)
 
     def print_answer(self):
         """

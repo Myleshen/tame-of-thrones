@@ -39,7 +39,7 @@ class Encoder:
 
     def __encode_word(self, word_to_encode, ceaser_cipher_key):
         """
-        __encode_word Encode the word_to_encode by using the
+        encode_word Encode the word_to_encode by using the
         ceaser_cipher_key
 
         :param word_to_encode: Contains the word that is to be encoded

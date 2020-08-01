@@ -6,7 +6,8 @@ class CommandLineParser:
     def __init__(self):
         """
         __init__ --> Gets the filePath from Command Line.
-
+        Initializes an instance of the file parser to
+        get the file contents
         """
         self.file_name = sys.argv[1]
         self.file_parser = FileParser()

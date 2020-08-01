@@ -1,4 +1,5 @@
 from tame_of_thrones.Solver import Solver
+import collections
 import unittest
 
 
@@ -26,7 +27,9 @@ class TestSolver(unittest.TestCase):
             kingdom_list, encoded_string_list
         ):
             self.solver.if_accepted_add_to_forged_pact_list(
-                kingdom, encoded_string
+                kingdom,
+                encoded_string,
+                collections.Counter(self.test_dict[kingdom][1]),
             )
         self.assertEqual(
             self.solver.kingdoms_pact_forged_with, ["AIR", "LAND", "ICE"],
@@ -43,7 +46,9 @@ class TestSolver(unittest.TestCase):
             kingdom_list, encoded_string_list
         ):
             self.solver.if_accepted_add_to_forged_pact_list(
-                kingdom, encoded_string
+                kingdom,
+                encoded_string,
+                collections.Counter(self.test_dict[kingdom][1]),
             )
         self.assertEqual(
             self.solver.kingdoms_pact_forged_with, [],
@@ -61,7 +66,9 @@ class TestSolver(unittest.TestCase):
             kingdom_list, encoded_string_list
         ):
             self.solver.if_accepted_add_to_forged_pact_list(
-                kingdom, encoded_string
+                kingdom,
+                encoded_string,
+                collections.Counter(self.test_dict[kingdom][1]),
             )
         self.assertEqual(
             self.solver.kingdoms_pact_forged_with, ["AIR"],
